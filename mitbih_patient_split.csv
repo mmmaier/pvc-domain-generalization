@@ -1,0 +1,49 @@
+record_id,split,age,sex,n_beats_total,n_normal,n_pvc,n_other_excluded,clinical_notes
+101,train,75,F,1859,1853,0,6,Normal sinus rhythm with noise artifacts
+105,train,73,F,2592,2516,41,35,High-grade noise and artifact; uniform PVCs
+111,train,47,F,2114,2113,1,0,First degree AV block; excellent quality
+112,train,54,M,2529,2529,0,0,S-T segment depression
+113,train,24,F,1785,1785,0,0,Possible wandering atrial pacemaker
+114,train,72,F,1870,1820,49,1,Uniform PVCs; SVTA episode
+117,train,69,M,1525,1525,0,0,Normal sinus rhythm
+122,train,51,M,2468,2466,0,2,Normal sinus rhythm
+123,train,63,F,1508,1505,3,0,Uniform and interpolated PVCs
+124,train,77,M,1609,1523,86,0,Multiform PVCs; accelerated rhythms
+200,train,64,M,2591,1766,825,0,Multiform PVCs; severe noise and artifact
+201,train,68,M,1953,1742,207,4,Uniform and late-cycle PVCs; atrial fibrillation
+202,train,68,M,2128,2106,20,2,Uniform and late-cycle PVCs; atrial flutter/fibrillation
+203,train,43,M,2994,2518,442,34,Very difficult record; multiform PVCs
+205,train,59,M,2647,2564,82,1,Two PVC forms; ventricular tachycardia runs
+207,train,89,F,1852,1534,103,215,Extremely difficult record; multiform PVCs
+208,train,23,F,2953,1584,1359,10,Uniform PVCs with fusion patterns
+209,train,62,M,3002,2994,1,7,Extensive supraventricular ectopy
+210,train,89,M,2641,2437,203,1,Multiform PVCs; atrial fibrillation
+212,train,32,F,2739,2738,0,1,Rate-related right bundle branch block
+214,train,53,M,2257,1989,257,11,Multiform PVCs; tape slippage
+220,train,87,F,2038,2038,0,0,Supraventricular tachyarrhythmia runs
+221,train,83,M,2417,2022,395,0,Multiform PVCs; atrial fibrillation
+222,train,84,F,2473,2260,213,0,Paroxysmal atrial flutter/fibrillation
+223,train,73,M,2595,2108,487,0,Multiform PVCs; bidirectional ventricular tachycardia
+228,train,80,F,2067,1681,361,25,First degree AV block; multiform PVCs; tape slippage
+230,train,32,M,2247,2245,1,1,Pre-excitation (WPW pattern)
+231,train,72,F,1561,1559,2,0,2:1 AV block with Mobitz II patterns
+233,train,57,M,3071,2230,839,2,Multiform PVCs with extensive ectopy
+106,val,24,F,2017,1497,518,2,Multiform PVCs with bigeminy and trigeminy
+108,val,87,F,1760,1733,19,8,First degree AV block; multiform PVCs
+115,val,39,F,1947,1942,0,5,Normal sinus rhythm
+116,val,68,M,2402,2293,109,0,Two PVC forms
+119,val,51,F,1977,1534,443,0,Uniform PVCs with bigeminy/trigeminy
+121,val,83,F,1853,1852,1,0,Normal sinus rhythm
+219,val,NR,M,2144,2080,64,0,Multiform PVCs; atrial fibrillation; pauses up to 3s
+100,test,69,M,2263,2262,1,0,Normal sinus rhythm
+103,test,NR,M,2074,2074,0,0,Normal sinus rhythm
+109,test,64,M,2522,2483,39,0,First degree AV block; multiform PVCs
+118,test,69,M,2268,2252,16,0,Multiform PVCs
+213,test,61,M,3241,2659,582,0,Multiform PVCs; frequent fusion beats
+215,test,81,M,3353,3188,165,0,Multiform PVCs; tape slippage
+232,test,76,F,1770,1769,0,1,Sick sinus syndrome; pauses up to 6s
+234,test,56,F,2743,2690,53,0,Uniform PVCs; junctional tachycardia
+102,excluded_paced,84,F,NA,NA,NA,NA,Demand pacemaker; multiform PVCs
+104,excluded_paced,66,F,NA,NA,NA,NA,Paced rhythm with fusion beats; multiform PVCs
+107,excluded_paced,63,M,NA,NA,NA,NA,Complete heart block; paced; multiform PVCs
+217,excluded_paced,65,M,NA,NA,NA,NA,Paced rhythm; multiform PVCs
