@@ -1,0 +1,76 @@
+record_id,record_name,patient_id,age,sex,split,n_beats_total,n_normal,n_pvc,diagnosis
+1,I01,1,65,F,test,2747,2405,342,"Coronary artery disease, arterial hypertension"
+2,I02,1,65,F,test,2664,2481,183,"Coronary artery disease, arterial hypertension"
+3,I03,2,59,M,train,2441,2317,124,Acute MI
+4,I04,2,59,M,train,2413,2275,138,Acute MI
+5,I05,2,59,M,train,1766,1512,254,Acute MI
+6,I06,3,80,M,validation,2483,2474,9,Transient ischemic attack
+7,I07,3,80,M,validation,2696,2695,1,Transient ischemic attack
+8,I08,4,51,F,train,2121,1775,346,NR
+9,I09,5,68,M,train,2987,2946,41,NR
+10,I10,5,68,M,train,3672,3589,83,NR
+11,I11,5,68,M,train,2096,2092,4,NR
+12,I12,6,39,F,train,2799,2791,8,NR
+13,I13,6,39,F,train,2013,1785,228,NR
+14,I14,6,39,F,train,1856,1793,63,NR
+15,I15,7,57,M,train,2625,2622,3,Transient ischemic attack
+16,I16,8,64,M,train,1512,1510,2,Transient ischemic attack
+17,I17,8,64,M,train,1662,1636,26,Transient ischemic attack
+18,I18,9,18,F,train,3074,2654,420,NR
+19,I19,9,18,F,train,2053,1221,832,NR
+20,I20,10,59,F,train,2642,2531,111,"Coronary artery disease, arterial hypertension, left ventricular hypertrophy"
+21,I21,10,59,F,train,2174,2166,8,"Coronary artery disease, arterial hypertension, left ventricular hypertrophy"
+22,I22,10,59,F,train,3116,2930,186,"Coronary artery disease, arterial hypertension, left ventricular hypertrophy"
+23,I23,11,52,M,train,2195,2182,13,Earlier MI
+24,I24,11,52,M,train,2561,2555,6,Earlier MI
+25,I25,12,66,F,validation,1702,1697,5,Sinus node dysfunction
+26,I26,12,66,F,validation,1499,1495,4,Sinus node dysfunction
+27,I27,13,60,M,test,2595,1878,717,NR
+28,I28,13,60,M,test,1707,1703,4,NR
+29,I29,14,41,F,validation,2611,1830,781,NR
+30,I30,14,41,F,validation,2452,1698,754,NR
+31,I31,14,41,F,validation,3200,1838,1362,NR
+32,I32,14,41,F,validation,1609,1556,53,NR
+33,I33,15,40,M,test,1827,1826,1,NR
+34,I34,15,40,M,test,1955,1955,0,NR
+35,I35,16,38,F,validation,3665,3192,473,"Coronary artery disease, arterial hypertension, left ventricular hypertrophy"
+36,I36,16,38,F,validation,3899,3437,462,"Coronary artery disease, arterial hypertension, left ventricular hypertrophy"
+37,I37,16,38,F,validation,2451,2001,450,"Coronary artery disease, arterial hypertension, left ventricular hypertrophy"
+38,I38,17,60,F,test,2689,2149,540,"Coronary artery disease, arterial hypertension"
+39,I39,17,60,F,test,1765,1452,313,"Coronary artery disease, arterial hypertension"
+40,I40,18,66,M,train,2656,2564,92,Transient ischemic attack
+41,I41,18,66,M,train,1620,1619,1,Transient ischemic attack
+42,I42,19,19,M,train,3099,1539,1560,NR
+43,I43,19,19,M,train,2199,1081,1118,NR
+44,I44,20,53,F,train,2484,1802,682,"Coronary artery disease, arterial hypertension, left ventricular hypertrophy"
+45,I45,20,53,F,train,1918,1430,488,"Coronary artery disease, arterial hypertension, left ventricular hypertrophy"
+46,I46,20,53,F,train,2648,2224,424,"Coronary artery disease, arterial hypertension, left ventricular hypertrophy"
+47,I47,21,68,F,test,1943,1856,87,Earlier MI
+48,I48,21,68,F,test,2347,2111,236,Earlier MI
+49,I49,22,70,M,test,2137,2110,27,NR
+50,I50,22,70,M,test,2988,2984,4,NR
+51,I51,23,56,M,train,2767,1968,799,NR
+52,I52,23,56,M,train,1737,1600,137,NR
+53,I53,23,56,M,train,2252,1146,1106,NR
+54,I54,24,74,M,train,2353,2331,22,Earlier MI
+55,I55,24,74,M,train,2156,2139,17,Earlier MI
+56,I56,24,74,M,train,1695,1688,7,Earlier MI
+57,I57,25,45,F,train,2860,2837,23,"Coronary artery disease, arterial hypertension"
+58,I58,25,45,F,train,2315,2303,12,"Coronary artery disease, arterial hypertension"
+59,I59,26,49,F,train,2138,2016,122,NR
+60,I60,26,49,F,train,2465,2414,51,NR
+61,I61,26,49,F,train,1444,1444,0,NR
+62,I62,27,58,M,train,2259,1452,807,Acute MI
+63,I63,27,58,M,train,1984,1840,144,Acute MI
+64,I64,27,58,M,train,1903,1877,26,Acute MI
+65,I65,28,58,F,train,2654,2270,384,NR
+66,I66,28,58,F,train,2330,2132,198,NR
+67,I67,28,58,F,train,2965,2434,531,NR
+68,I68,29,62,M,train,2634,2473,161,NR
+69,I69,29,62,M,train,2159,1991,168,NR
+70,I70,30,64,M,validation,1656,1656,0,NR
+71,I71,30,64,M,validation,1660,1660,0,NR
+72,I72,31,73,M,train,2259,1875,384,"Coronary artery disease, arterial hypertension, left ventricular hypertrophy"
+73,I73,31,73,M,train,1982,1912,70,"Coronary artery disease, arterial hypertension, left ventricular hypertrophy"
+74,I74,32,66,M,train,2394,2073,321,Earlier MI
+75,I75,32,66,M,train,2093,1476,617,Earlier MI
