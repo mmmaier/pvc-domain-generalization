@@ -1,0 +1,47 @@
+# ECG-CNN (ResNet, ecg_copy) shared defaults.
+# Per-dataset files (NAKO.yaml / MIT_BIH.yaml / INCART.yaml) only override
+# data paths, output_dir, and batch_size -- everything architectural stays
+# identical across datasets so Table VI reports one row, not three.
+model: ecg_cnn
+
+architecture:
+  is_regular_conv: false  # ResNet, not plain conv stack
+  conv_activation: relu
+  conv_dropout: 0.2
+  conv_init: he_normal
+  conv_filter_length: 16
+  conv_num_filters_start: 32
+  conv_subsample_lengths: [1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2]
+  conv_increase_channels_at: 2
+  conv_num_skip: 2
+  input_shape: [1280, 1]  # cropped length -- see data_prep/prepare_data_from_hdf5.py CROP_LEN
+
+training:
+  clipnorm: 1.0
+  # CNN trains from scratch (unlike OTiS finetuning a pretrained backbone),
+  # so it needs a much larger epoch budget -- rely on early stopping rather
+  # than a fixed epoch count, since actual convergence time varies a lot
+  # between NAKO (3.6M beats) and MIT-BIH/INCART (tens of thousands).
+  max_epochs: 200
+  early_stopping:
+    monitor: val_auroc
+    mode: max
+    patience: 20
+  seed: 40
+
+selection:
+  # Model/hyperparameter selection uses ONLY this dataset's own validation
+  # AUROC -- never the other two datasets' test performance. See Table VI.
+  criterion: val_auroc
+
+# Primary tuning axis per your question about per-model learning rates.
+# Range matches what NAKO_resnet_grid{1e-3,1e-4,3e-4}.py already explored,
+# and confirmed by parsing runs_resnet_lr_wd_nosamplenorm/*/stdout_stderr.log:
+# best MIT-BIH val_auc=0.998 at lr=1e-3/wd=1e-3; best INCART val_auc=0.994
+# at lr=3e-4/wd=1e-3 (though that run only logged 5 epochs -- the more
+# thoroughly-trained lr=1e-3/wd=1e-3 run reached 0.980 over 22 epochs and
+# may be the more reliable comparison point). No change needed to this grid.
+lr_grid: [1.0e-4, 3.0e-4, 1.0e-3]
+
+# Secondary axis, fixed unless the LR grid alone doesn't separate runs well.
+weight_decay_grid: [1.0e-4, 1.0e-3]

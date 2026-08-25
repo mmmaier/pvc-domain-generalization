@@ -1,0 +1,14 @@
+extends: base.yaml
+dataset: MIT_BIH
+
+data:
+  train_json: ../../cnn_data/MIT_BIH/train.json
+  val_json: ../../cnn_data/MIT_BIH/validation.json
+
+output_dir: ../../runs/cnn/MIT_BIH
+
+# train=66,085 beats -- prior local sweeps (runs_resnet_lr_wd_nosamplenorm/
+# MIT_BIH) all used batch_size=1024 and reached val_auc=0.998, so matching
+# that rather than an untested theoretical scale-down.
+training:
+  batch_size: 1024

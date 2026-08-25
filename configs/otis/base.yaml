@@ -1,0 +1,43 @@
+# OTiS (pretrained time-series Transformer) shared defaults.
+# Per-dataset files only override data paths, output_dir, and batch_size.
+model: otis
+
+architecture:
+  name: vit_baseDeep_patchX
+  checkpoint: /home/melaniem/otis/weights/otis_base.pth
+  input_channels: 1
+  input_variates: 1
+  time_steps: 1280  # cropped length -- see data_prep/prepare_data_from_hdf5.py CROP_LEN
+  drop_path: 0.1
+
+training:
+  accum_iter: 1
+  warmup_epochs: 5
+  min_lr: 1.0e-6
+  weighted_loss: true
+  smoothing: 0.1
+  layer_decay: 0.75
+  # Finetuning a pretrained backbone converges much faster than training the
+  # CNN from scratch -- early stopping still applies, but expect far fewer
+  # epochs in practice than the CNN's budget.
+  max_epochs: 50
+  early_stopping:
+    monitor: val_auroc
+    mode: max
+    patience: 8
+  seed: 40
+
+selection:
+  # Same rule as CNN: selection uses ONLY this dataset's own validation
+  # AUROC, never target-dataset performance. See Table VI.
+  criterion: val_auroc
+
+# Primary tuning axis. Centered on the region confirmed by prior wandb
+# sweeps (projects otis-grid-MIT_BIH, otis-grid-INCART-nonan, otis-grid-
+# mit_bih_1280, otis-grid-incart_1280): best val AUROC on both MIT-BIH
+# (99.1%) and INCART (98.8%) came from lr=1e-2, with 3e-2 also tested and
+# losing -- i.e. 1e-2 is a real interior optimum, not a grid-edge effect.
+# layer_decay/smoothing/drop_path are kept fixed here rather than also
+# gridded, to keep the per-dataset run count tractable; revisit if LR
+# alone doesn't separate runs well.
+lr_grid: [3.0e-4, 1.0e-3, 3.0e-3, 1.0e-2]

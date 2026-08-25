@@ -1,0 +1,17 @@
+extends: base.yaml
+dataset: INCART
+
+data:
+  train_data: ../../otis_data/INCART/train_data.pt
+  train_labels: ../../otis_data/INCART/train_labels.pt
+  val_data: ../../otis_data/INCART/validation_data.pt
+  val_labels: ../../otis_data/INCART/validation_labels.pt
+
+output_dir: ../../runs/otis/INCART
+
+# train=116,200 beats -- same reasoning as MIT_BIH.yaml: prior wandb sweeps
+# (otis-grid-INCART-nonan, otis-grid-incart_1280) used batch_size 16384-
+# 30760 here and reached 98.8% val AUROC, so matching that instead of a
+# theoretical scale-down.
+training:
+  batch_size: 30720  # =30x1024, ~identical to the proven 30760 but a clean multiple of 1024

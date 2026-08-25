@@ -1,0 +1,22 @@
+extends: base.yaml
+dataset: NAKO
+
+data:
+  train_json: ../../cnn_data/NAKO/train.json
+  val_json: ../../cnn_data/NAKO/validation.json
+
+output_dir: ../../runs/cnn/NAKO
+
+# train=3,600,000 beats (balanced) -- matches the batch size already used
+# in the old NAKO_resnet_grid*.py scripts (~3.5k steps/epoch).
+#
+# WARNING: parsed stdout_stderr.log from the old full-NAKO CNN runs shows
+# ~10,000s (~2.8h) per epoch at this batch size -- that's why those old
+# runs only got 1-5 epochs logged before being killed, and why NAKO_1/
+# NAKO_10 (1%/10% subsets) existed as a separate, faster proxy. base.yaml's
+# max_epochs=200 is NOT realistic for full NAKO as-is (200 epochs would be
+# ~23 days). Decide before running: hard-cap epochs much lower, or run the
+# data-efficiency subsets first and treat full-NAKO CNN as a long background
+# job with a small epoch budget.
+training:
+  batch_size: 1024

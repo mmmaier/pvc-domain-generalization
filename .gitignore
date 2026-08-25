@@ -1,2 +1,13 @@
 # Patient-level NAKO data — never commit, private cohort data for paper figures only
 NAKO_demographics_patient_level.csv
+
+# Converted training data (regenerable via data_prep/prepare_data_from_hdf5.py)
+cnn_data/
+otis_data/
+rrm_data/
+
+# Training run outputs/checkpoints
+runs/
+
+__pycache__/
+*.pyc

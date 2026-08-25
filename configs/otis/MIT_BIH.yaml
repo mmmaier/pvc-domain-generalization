@@ -1,0 +1,18 @@
+extends: base.yaml
+dataset: MIT_BIH
+
+data:
+  train_data: ../../otis_data/MIT_BIH/train_data.pt
+  train_labels: ../../otis_data/MIT_BIH/train_labels.pt
+  val_data: ../../otis_data/MIT_BIH/validation_data.pt
+  val_labels: ../../otis_data/MIT_BIH/validation_labels.pt
+
+output_dir: ../../runs/otis/MIT_BIH
+
+# train=66,085 beats -- theoretically only ~2 steps/epoch at this batch
+# size, but prior wandb sweeps (otis-grid-MIT_BIH, otis-grid-mit_bih_1280)
+# used exactly this batch_size on MIT-BIH and reached 99.1% val AUROC, so
+# the "too few steps" concern doesn't hold up empirically. Matching what's
+# proven to work rather than a untested theoretical adjustment.
+training:
+  batch_size: 30720  # =30x1024, ~identical to the proven 30760 but a clean multiple of 1024

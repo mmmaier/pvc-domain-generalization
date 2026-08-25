@@ -1,0 +1,14 @@
+extends: base.yaml
+dataset: INCART
+
+data:
+  train_json: ../../cnn_data/INCART/train.json
+  val_json: ../../cnn_data/INCART/validation.json
+
+output_dir: ../../runs/cnn/INCART
+
+# train=116,200 beats -- prior local sweeps (runs_resnet_lr_wd_nosamplenorm/
+# INCART) all used batch_size=1024 and reached val_auc up to 0.994, so
+# matching that rather than an untested theoretical scale-down.
+training:
+  batch_size: 1024

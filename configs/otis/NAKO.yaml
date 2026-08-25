@@ -1,0 +1,15 @@
+extends: base.yaml
+dataset: NAKO
+
+data:
+  train_data: ../../otis_data/NAKO/train_data.pt
+  train_labels: ../../otis_data/NAKO/train_labels.pt
+  val_data: ../../otis_data/NAKO/validation_data.pt
+  val_labels: ../../otis_data/NAKO/validation_labels.pt
+
+output_dir: ../../runs/otis/NAKO
+
+# train=3,600,000 beats -- matches configs/base_args.py's original batch
+# size (~117 steps/epoch).
+training:
+  batch_size: 30720  # =30x1024, ~identical to the proven 30760 but a clean multiple of 1024
