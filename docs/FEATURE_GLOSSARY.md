@@ -36,14 +36,14 @@ Physical-unit statistics computed on a short morphology window (-200..300 ms aro
 | Stat | Formula |
 |---|---|
 | `p2p` | max(x) - min(x)  (peak-to-peak amplitude) |
-| `max_abs_amp` | max(|x|)  (largest absolute sample value) |
+| `max_abs_amp` | max(abs(x))  (largest absolute sample value) |
 | `rms` | sqrt(mean(x^2))  (root-mean-square amplitude) |
 | `energy` | sum(x^2)  (signal energy) |
-| `abs_area` | sum(|x|)  (integral of the absolute value, i.e. area under |x|) |
-| `waveform_length` | sum(|diff(x)|)  (cumulative absolute sample-to-sample change) |
+| `abs_area` | sum(abs(x))  (integral of the absolute value, i.e. area under abs(x)) |
+| `waveform_length` | sum(abs(diff(x)))  (cumulative absolute sample-to-sample change) |
 | `max_pos_slope` | max(diff(x))  (steepest upward step) |
 | `max_neg_slope` | min(diff(x))  (steepest downward step) |
-| `max_abs_deriv` | max(|diff(x)|)  (largest absolute sample-to-sample step, either direction) |
+| `max_abs_deriv` | max(abs(diff(x)))  (largest absolute sample-to-sample step, either direction) |
 
 **Broadband (`bb__`), 9 stats × 3 positions = 27 features:**
 
@@ -76,8 +76,8 @@ Every one of the 39 `bb__`/`band__` **absolute base features above** (9 broadban
 | `curr_over_prev` | current beat / previous beat | ratio/relative |
 | `curr_over_next` | current beat / next beat | ratio/relative |
 | `curr_over_neighbor_mean` | current beat / mean(previous, next) (uses whichever neighbor is available) | ratio/relative |
-| `curr_minus_prev_over_prev` | (current - previous) / (|previous|+eps) | ratio/relative |
-| `curr_minus_next_over_next` | (current - next) / (|next|+eps) | ratio/relative |
+| `curr_minus_prev_over_prev` | (current - previous) / (abs(previous)+eps) | ratio/relative |
+| `curr_minus_next_over_next` | (current - next) / (abs(next)+eps) | ratio/relative |
 | `prev_over_next` | previous beat / next beat (neighbor asymmetry, independent of the target beat) | ratio/relative |
 
 Example: `relbeat__band__4_8__curr__energy__curr_over_prev` = (4-8 Hz energy of the current beat) / (4-8 Hz energy of the previous beat). Base feature can be `bb__` (broadband, position already fixed to the relevant one internally) or `band__<band>__`. This family is only **5.6% saturated by gain** in the collapse diagnostic — the safest of the morphology-derived families.
